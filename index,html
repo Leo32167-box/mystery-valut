@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mystery Valut</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0715;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 25px 10px;
+    background: #160b2e;
+    border-bottom: 2px solid #8b35ff;
+}
+
+header h1 {
+    color: #b56bff;
+    font-size: 36px;
+    margin: 0;
+    text-shadow: 0 0 15px #8b35ff;
+}
+
+header p {
+    color: #b9b2ca;
+}
+
+nav {
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 45px 15px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #b56bff;
+}
+
+.hero button,
+.product button {
+    background: linear-gradient(90deg, #7928ff, #147dff);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background: #191128;
+    border: 1px solid #7738b9;
+    border-radius: 15px;
+    width: 260px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 12px #321455;
+}
+
+.product .emoji {
+    font-size: 65px;
+}
+
+.product h3 {
+    color: #c28aff;
+}
+
+.price {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#cart {
+    text-align: center;
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: #191128;
+    border-radius: 12px;
+}
+
+#cartItems {
+    line-height: 2;
+}
+
+.contact {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+input, select {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 12px auto;
+    padding: 12px;
+    border-radius: 7px;
+    border: 1px solid #7738b9;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    background: #160b2e;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💜 MYSTERY VALUT 💙</h1>
+    <p>Otkrij iznenađenje koje te čeka!</p>
+</header>
+
+<nav>
+    <a href="#pocetak">Početna</a>
+    <a href="#proizvodi">Mystery Boxovi</a>
+    <a href="#cart">Košarica</a>
+    <a href="#kontakt">Kontakt</a>
+</nav>
+
+<section class="hero" id="pocetak">
+    <h2>🎁 Usudi se otvoriti iznenađenje!</h2>
+    <p>Odaberi svoj Mystery Box i otkrij što se skriva unutra.</p>
+    <button onclick="document.getElementById('proizvodi').scrollIntoView({behavior:'smooth'})">
+        Pogledaj ponudu
+    </button>
+</section>
+
+<section class="products" id="proizvodi">
+
+    <div class="product">
+        <div class="emoji">🎁</div>
+        <h3>Basic Box</h3>
+        <p>Malo iznenađenje za početak.</p>
+        <p class="price">10 €</p>
+        <button onclick="addToCart('Basic Box',10)">Dodaj u košaricu</button>
+    </div>
+
+    <div class="product">
+        <div class="emoji">💎</div>
+        <h3>Premium Box</h3>
+        <p>Još više iznenađenja!</p>
+        <p class="price">25 €</p>
+        <button onclick="addToCart('Premium Box',25)">Dodaj u košaricu</button>
+    </div>
+
+    <div class="product">
+        <div class="emoji">👑</div>
+        <h3>Legendary Box</h3>
+        <p>Naš najveći paket iznenađenja.</p>
+        <p class="price">50 €</p>
+        <button onclick="addToCart('Legendary Box',50)">Dodaj u košaricu</button>
+    </div>
+
+</section>
+
+<section id="cart">
+    <h2>🛒 Tvoja košarica</h2>
+    <div id="cartItems">Košarica je prazna.</div>
+    <h3>Ukupno: <span id="total">0</span> €</h3>
+    <button onclick="checkout()">Nastavi na narudžbu</button>
+</section>
+
+<section class="contact" id="kontakt">
+    <h2>📦 Pošalji upit za narudžbu</h2>
+
+    <form action="https://formspree.io/f/TVOJ_FORM_ID" method="POST">
+        <input type="text" name="ime" placeholder="Ime i prezime"…
